@@ -2,3 +2,4 @@ node_modules/
 static/
 .idea/.name
 .idea/
+bower_components/

@@ -16,11 +16,13 @@ module.exports = function(grunt) {
 		uglify: {
 			options: {
 				// the banner is inserted at the top of the output
-				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
+				// If not false, application crashing
+				mangle: false
 			},
 			dist: {
 				files: {
-					'static/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+					'static/js/<%= pkg.name %>.min.js': ['<%= bower_concat.all.dest.js %>', '<%= concat.dist.dest %>']
 				}
 			}
 		},
@@ -41,8 +43,15 @@ module.exports = function(grunt) {
 				files: [
 					{
 						cwd: 'app/templates',
-						src: ['**/*.jade'],
+						src: ['**/*.pug', '!index.pug'],
 						dest: 'static/templates',
+						expand: true,
+						ext: '.html'
+					},
+					{
+						cwd: 'app/templates',
+						src: ['index.pug'],
+						dest: 'static',
 						expand: true,
 						ext: '.html'
 					}
@@ -60,7 +69,20 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
-		clean: ['static']
+		clean: ['static'],
+		bower_concat: {
+			all: {
+				dest: {
+					'js': 'static/js/libs.js',
+					'css': 'static/css/libs.css'
+				},
+				exclude: [],
+				dependencies: {},
+				bowerOptions: {
+					relative: false
+				}
+			}
+		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-less');
@@ -69,6 +91,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-bower-concat');
 
-	grunt.registerTask('default', ['clean', 'less', 'pug', 'concat', 'uglify', 'cssmin']);
+	grunt.registerTask('default', ['clean', 'less', 'pug', 'concat', 'bower_concat', 'uglify', 'cssmin']);
 };
