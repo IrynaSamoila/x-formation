@@ -1,0 +1,36 @@
+{
+  "name": "x-formation",
+  "version": "1.0.0",
+  "description": "test project for x-formation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IrynaSamoila/x-formation.git"
+  },
+  "keywords": [
+    "test",
+    "x-formation"
+  ],
+  "author": "Iryna Samoila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IrynaSamoila/x-formation/issues"
+  },
+  "homepage": "https://github.com/IrynaSamoila/x-formation",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-less": "^1.3.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0"
+  }
+}
