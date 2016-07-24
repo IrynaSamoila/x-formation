@@ -10,8 +10,6 @@ angular.module('app').directive('contributorsGrid', ['ContributorsFactory', 'uiG
 			ContributorsFactory.read()
 				.then($scope.success, $scope.error)
 				.then(function(response) {
-					console.log(response.data);
-					//$scope.myData = response.data;
 					$scope.gridOptionsContrib = {
 						columnDefs: [
 							{name: 'Nickname', field: 'nickname', enableColumnResizing: true, cellTooltip: true, headerTooltip: true},

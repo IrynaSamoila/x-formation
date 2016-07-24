@@ -1,0 +1,96 @@
+@import "variables.less";
+@import "grid.less";
+@import "mixins.less";
+
+body {
+  background-color: @color-background-main;
+  color: @color-text-main;
+  margin: 0;
+}
+
+.container-wrap {
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.logo {
+  padding: 10px 0;
+}
+
+.landing-h1 {
+  text-align: center;
+  text-shadow: 4px 4px 10px @color-text-shadow;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  font: normal normal 300 42px / 45px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
+  text-transform: none;
+
+  span {
+    color: @color-text-landing-h1;
+  }
+}
+
+.landing-bg-main {
+  background: url("../images/desk.jpg")no-repeat 100% 100%;
+  .landing-image;
+}
+
+.landing-bg-tc {
+  background: url("../images/wall-1.jpg")no-repeat 100% 100%;
+  .landing-image;
+}
+
+.landing-bg-gh {
+  background: url("../images/wall-2.jpg")no-repeat 100% 100%;
+  .landing-image;
+}
+
+a.header {
+  color: @color-text-a-header;
+  font: normal normal normal 18px / 24px "Tahoma", Helvetica, Arial, Verdana, sans-serif;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  &:hover {
+    color: @color-text-a-header-hover;
+    cursor: pointer;
+  }
+}
+
+.header-green {
+  color: @color-text-a-header-green;
+  font-size: 28px;
+  font: normal normal normal 24px / 30px "Tahoma", Helvetica, Arial, Verdana, sans-serif;
+  text-transform: none;
+  text-align: center;
+}
+
+.container-header-green {
+  margin: 40px 0;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.navigation-btn {
+  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  vertical-align: middle;
+  background-color: @color-background-navigation-btn;
+  border-color: @color-border-navigation-btn;
+  color: @color-text-navigation-btn;
+  font: normal normal 300 20px/27px "Open Sans",Helvetica,Arial,Verdana,sans-serif !important;
+  font-size: 14px;
+  text-align: center;
+  padding: 12px;
+  line-height: 1;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}

@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 			options: {
 				// the banner is inserted at the top of the output
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
-				// If not false, application crashing
+				// If not false, application crashing because angular dependency resolving
 				mangle: false
 			},
 			dist: {
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		less: {
 			development: {
 				files: {
-					'static/css/<%= pkg.name %>.css': 'app/css/**/*.less'
+					'static/css/<%= pkg.name %>.css': 'app/less/main.less'
 				}
 			}
 		},
@@ -122,6 +122,15 @@ module.exports = function(grunt) {
 					}
 				]
 			}
+		},
+		watch: {
+			scripts: {
+				files: ['app/**/*.*'],
+				tasks: ['default'],
+				options: {
+					spawn: false
+				}
+			}
 		}
 	});
 
@@ -134,6 +143,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-bower-concat');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['clean', 'less', 'pug', 'concat', 'bower_concat', 'uglify', 'cssmin', 'imagemin','copy']);
 };

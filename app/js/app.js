@@ -15,14 +15,16 @@ angular.module('app', [
 			'title': 'X-formation test'
 		}
 	}).state('git_hub', {
-		url: '/git_hub',
-		templateUrl: 'templates/pages/git_hub.html',
+		url: '/git-hub',
+		templateUrl: 'templates/pages/gitHub.html',
+		controller: 'MainController',
 		data: {
 			'title': 'X-Formation public repositories'
 		}
 	}).state('top_contributors', {
-		url: '/top_contributors',
-		templateUrl: 'templates/pages/top_contributors.html',
+		url: '/top-contributors',
+		templateUrl: 'templates/pages/topContributors.html',
+		controller: 'MainController',
 		data: {
 			'title': 'Top contributors'
 		}

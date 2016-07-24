@@ -1,6 +1,9 @@
 doctype html
-html(lang='ru' ng-app='app' id='ng-app' )
+html(lang='en' ng-app='app' id='ng-app' )
 	include partials/header
 	body
-		//.main.container(style='display: none;' ng-controller='BaseCtrl')
+		.container-wrap
+			.logo
+				a(ui-sref='main')
+					img(src="images/logo-small.png")
 		div(ui-view)
