@@ -82,6 +82,46 @@ module.exports = function(grunt) {
 					relative: false
 				}
 			}
+		},
+		imagemin: {                          // Task
+			static: {                          // Target
+				options: {                       // Target options
+					optimizationLevel: 3
+				},
+				files: [{
+					expand: true,                  // Enable dynamic expansion
+					cwd: 'app/images/',                   // Src matches are relative to this path
+					src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+					dest: 'static/images/'                  // Destination path prefix
+				}]
+			}
+		},
+		copy: {
+			main: {
+				files: [
+					{
+						expand: true,
+						cwd: 'bower_components/angular-ui-grid/',
+						src: [
+							'*.ttf',
+							'*.woff',
+							'*.eot',
+							'*.svg'
+						],
+						dest: 'static/css/',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'app/data/',
+						src: [
+							'*.json'
+						],
+						dest: 'static/data/',
+						filter: 'isFile'
+					}
+				]
+			}
 		}
 	});
 
@@ -92,6 +132,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-bower-concat');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('default', ['clean', 'less', 'pug', 'concat', 'bower_concat', 'uglify', 'cssmin']);
+	grunt.registerTask('default', ['clean', 'less', 'pug', 'concat', 'bower_concat', 'uglify', 'cssmin', 'imagemin','copy']);
 };

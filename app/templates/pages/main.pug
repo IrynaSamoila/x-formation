@@ -1,3 +1,21 @@
-div
-	| test main
+.container-wrap
+	.logo
+		img(src="images/logo-small.png")
+.landing-bg
+	h1.landing-h1.h1-size
+		span Recruitment test
+			br
+			| Iryna Samoila
+
+.container-wrap
+	.container-header-green
+		.header-green Statistics about X-Formation public repositories and top contributors
+
+	.text-align-center
+		a.header(ui-sref='git_hub') X-Formation public repositories
+	git-hub-grid
+
+	.text-align-center
+		a.header(ui-sref='top_contributors') Top contributors
+	contributors-grid
 
