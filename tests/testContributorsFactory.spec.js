@@ -63,7 +63,7 @@ describe('Contributors factory', function() {
 		$urlRouterProvider.deferIntercept();
 	}));
 
-	// Before each test set our injected ContributorsFactory factory (_ContributorsFactory_) to our local ContributorsFactory variable
+	// Before each test set our injected ContributorsFactory factory (_ContributorsFactory_) to our local ContributorsFactory variable and $httpBackend(_$httpBackend_) to local $httpBackend variable
 	beforeEach(inject(function(_ContributorsFactory_, _$httpBackend_) {
 		ContributorsFactory = _ContributorsFactory_;
 		$httpBackend = _$httpBackend_;
