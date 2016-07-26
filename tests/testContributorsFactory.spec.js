@@ -97,7 +97,13 @@ describe('Contributors factory', function() {
 
 			$httpBackend.flush();
 
-			expect(result).toEqual(contributors);
+			expect(result).toEqual(jasmine.any(Array));
+			expect(result.length).toBeGreaterThan(0);
+
+			var item = result[0];
+			expect(item.nickname).toEqual(jasmine.any(String));
+			expect(item.team).toEqual(jasmine.any(String));
+			expect(item.contributions).toEqual(jasmine.any(Number));
 		});
 	});
 });

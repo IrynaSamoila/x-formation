@@ -125,7 +125,6 @@ describe('GitHub factory', function () {
 
 		it('should return a hard-coded list of repositories', function () {
 			$httpBackend.expectGET('https://api.github.com/orgs/x-formation/repos').respond(testData);
-
 			var read = GitHubFactory.read();
 			var result;
 
@@ -134,7 +133,17 @@ describe('GitHub factory', function () {
 			});
 
 			$httpBackend.flush();
-			expect(result).toEqual(testData);
+
+			expect(result).toEqual(jasmine.any(Array));
+			expect(result.length).toBeGreaterThan(0);
+
+			var item = result[0];
+			expect(item.name).toEqual(jasmine.any(String));
+			expect(item.description).toEqual(jasmine.any(String));
+			expect(item.pushed_at).toEqual(jasmine.any(String));
+			expect(item.language).toEqual(jasmine.any(String));
+			expect(item.stargazers_count).toEqual(jasmine.any(Number));
+			expect(item.forks_count).toEqual(jasmine.any(Number));
 		});
 	});
 });
